@@ -16,7 +16,7 @@ $(function(){$common=new $.createNew(); $common.methods.init();});
 					selectedId:null,
 					selectedImg:null,
 					result:null,
-					eventBtn:new Array(),
+					eventBtn:[],
 					leftTime:0,
 					level:1
 				}; 
@@ -31,7 +31,7 @@ $(function(){$common=new $.createNew(); $common.methods.init();});
                 //加载Loading界面
 				$common.methods.loadFile({config:Data.loading,
 					complete:function(event){
-						myLoading=new $.movieclip().artwork();
+						myLoading=new $.pageManager().loading();
 						//临时放置loading在stage上
 						myStage.addChild(myLoading.movieClip);
 						Loader=null;
@@ -55,7 +55,7 @@ $(function(){$common=new $.createNew(); $common.methods.init();});
 							//初始化完成,进入pageManager
 							$common.Page.methods.init(myStage);
 							//初始化弹层
-							$common.PopupClass=new $.popup({stage:myStage});
+							$common.PopupClass=new new $.pageManager().popup({stage:myStage});
 						});
 					}
 				});
@@ -105,7 +105,7 @@ $(function(){$common=new $.createNew(); $common.methods.init();});
         $createNew.dev={
             //获取玩游戏次数
             getNum:function(callback){
-                try{getNum(callback);}catch(e){callback({num:Math.ceil(Math.random()*2)});};
+                try{getNum(callback);}catch(e){callback({num:Math.ceil(Math.random()*2)});}
             }
         };
         return $createNew;

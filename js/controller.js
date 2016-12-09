@@ -1,11 +1,11 @@
 (function($) {
 	$.controller=function(){
-		var $control={}
+		var $control={};
 		$control.tween=function(_mc,_data,isIn,_callBack){
 			_mc.visible=true;
 			var obj={mc:_mc,data:_data},ease=createjs.Ease.sineInOut,time=500,alpha=0,rota=0,scale=1;
 			if(isIn){
-				if(obj.data.easeIn){ease=obj.data.easeIn;};
+				if(obj.data.easeIn){ease=obj.data.easeIn;}
 				if(obj.data.alpha){alpha=obj.data.alpha;}
 				if(obj.data.rota){rota=obj.data.rota;}
 				if(obj.data.scale){scale=obj.data.scale;}
@@ -39,7 +39,7 @@
 					createjs.Tween.get(_obj,{loop: true},true).to({y:parameter.targetY}, parameter.time);
 				}
 			}
-		}
+		};
 		$control.system={
 			load:function(manifest,parameter){
 				var _loaderNum=0;
@@ -52,14 +52,14 @@
 				Loader=_loader;
 			},
 			timer:function(){
-				if($control.system.toTimer){window.clearInterval($control.system.toTimer);};
+				if($control.system.toTimer){window.clearInterval($control.system.toTimer);}
 				$control.system.toTimer=window.setInterval(function(){},time);
 			},
 			timerOut:function(parameter){
-				if($control.system.toTimerout){window.clearTimeout($control.system.toTimerout);};
+				if($control.system.toTimerout){window.clearTimeout($control.system.toTimerout);}
 				$control.system.toTimerout=window.setTimeout(function(){if(parameter.complete)parameter.complete();},parameter.time);
 			},
-			removeTimerOut:function(){if($control.system.toTimerout){window.clearTimeout($control.system.toTimerout);};},
+			removeTimerOut:function(){if($control.system.toTimerout){window.clearTimeout($control.system.toTimerout);}},
 			resetScreen:function(parameter){
 				var stage=parameter.stage,angle=parameter.angle||0,width=$(window).width(),height=$(window).height(),maxWidth=parameter.maxWidth,maxHeight=parameter.maxHeight;
 				var rotate=this.setViewport(stage,angle),sacle=0;
@@ -75,10 +75,10 @@
 			   stage.main.scaleX = stage.main.scaleY =sacle;
 			},
 			setViewport:function(stage,angle){
-				var deg=angle==0?-90:0;
-				if(!this.getViewport()){deg=angle==0?0:-90;}
+				var deg=angle===0?-90:0;
+				if(!this.getViewport()){deg=angle===0?0:-90;}
 				stage.main.rotation=deg;
-				if(angle==0){return deg!=0?false:true;}else{return deg<0?false:true;}
+				if(angle===0){return deg!==0?false:true;}else{return deg<0?false:true;}
 			},
 			getViewport:function(){
 				return $(window).width()>$(window).height();
@@ -96,7 +96,8 @@
                 }
                 return null;
             }
-		}/*$control.system End*/
+		};
+		/*$control.system End*/
 		$control.doArrAni=function(_isIn, _arr){
 			for(var i=0;i<_arr.length;i++){
 				if(_arr[i].doAniCall)_arr[i].doAniCall(_isIn);
@@ -105,13 +106,13 @@
 		$control.create=function(key,data){
 			if(key=="sheet")return new createjs.Sprite(new createjs.SpriteSheet(data));
 			if(key=="shape")return new createjs.Shape();
-			if(key=="shapeFill"){var shapeFill=new createjs.Shape();shapeFill.graphics.beginBitmapFill(data.loader.getResult(data.img)).drawRect(data.x||0, data.y||0, data.width||data.loader.getResult(data.img).width, data.height||data.loader.getResult(data.img).height); return shapeFill;};
+			if(key=="shapeFill"){var shapeFill=new createjs.Shape();shapeFill.graphics.beginBitmapFill(data.loader.getResult(data.img)).drawRect(data.x||0, data.y||0, data.width||data.loader.getResult(data.img).width, data.height||data.loader.getResult(data.img).height); return shapeFill;}
 			if(key=="bitmap")return new createjs.Bitmap(data.img);
 			if(key=="text")return new createjs.Text(data.text||"", data.font||"20px Arial", data.color||"#000");
 			if(key=="container")return new createjs.Container();
 			if(key=="dom")return new createjs.DOMElement(data.dom);
-			if(key=="textField"){var input=document.createElement("input");if(data.className){input.className=data.className;};document.getElementById(data.content).appendChild(input);input.canvas=this.creat("dom",{dom:input});return input;}
+			if(key=="textField"){var input=document.createElement("input");if(data.className){input.className=data.className;}document.getElementById(data.content).appendChild(input);input.canvas=this.creat("dom",{dom:input});return input;}
 		};
 		return $control;
-	}
+	};
 })(jQuery);
