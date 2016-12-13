@@ -127,7 +127,7 @@
                 var content = $common.Control.create("container").set({ alpha: 1, x: 0, y: 0 });
                 //puzzleCon
                 var puzzleCon = $common.Control.create("container").set({ alpha: 0, x: 22, y: 1334 });
-                var border = $common.Control.create("shape").set({ graphics: new createjs.Graphics().beginFill("#fff").drawRect(0, 0, 706, 768) });
+                var border = $common.Control.create("shape").set({ graphics: new createjs.Graphics().beginFill("#ff0000").drawRect(0, 0, 706, 768) });
                 var puzzle = $common.Control.create("bitmap", { img: Loader.getResult("Bpuzzle0" + ($common.option.selectedId + 1) + "") }).set({ x: 10, y: 10 });
                 puzzleCon.addChild(border, puzzle);
                 //textCon
@@ -157,9 +157,9 @@
         function loading() {
             var movieclip = $common.Control.create("container").set({ alpha: 0, x: 275, y: 510 });
             var loading = $common.Control.create("bitmap", { img: Loader.getResult("loading") }).set({ x: 10, y: 0, textAlign: "center" });
-            var text = $common.Control.create("text", { text: "0", font: "bold 28px Microsoft YaHei", color: "#fff" }).set({ x: 155, y: -10, textAlign: "center" });
-            var percentBorder = $common.Control.create("shape").set({ x: 0, y: 30, graphics: new createjs.Graphics().setStrokeStyle(3).beginStroke("#fff").drawRect(0, 0, 200, 21) });
-            var percent = $common.Control.create("shape").set({ x: 5, y: 35, scaleX: 0, graphics: new createjs.Graphics().beginFill("#fff").drawRect(0, 0, 190, 11) });
+            var text = $common.Control.create("text", { text: "0", font: "bold 28px Microsoft YaHei", color: "#ff0000" }).set({ x: 155, y: -10, textAlign: "center" });
+            var percentBorder = $common.Control.create("shape").set({ x: 0, y: 30, graphics: new createjs.Graphics().setStrokeStyle(3).beginStroke("#ff0000").drawRect(0, 0, 200, 21) });
+            var percent = $common.Control.create("shape").set({ x: 5, y: 35, scaleX: 0, graphics: new createjs.Graphics().beginFill("#ff0000").drawRect(0, 0, 190, 11) });
             movieclip.addChild(loading, text, percentBorder, percent);
             createjs.Tween.get(movieclip).to({ alpha: 1, y: movieclip.y + 50 }, 500, createjs.Ease.sineInOut);
             return { movieClip: movieclip, text: text, percent: percent };

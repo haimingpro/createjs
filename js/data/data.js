@@ -9,7 +9,7 @@
     $data.material = [
 		{src:"bg_puzzle.png",id:"bg_puzzle"},{src:"bg_yellow.jpg",id:"bg_yellow"},
 		{src:"bottom_puzzle.png",id:"bottom_puzzle"},
-		{src:"static.png",id:"static"},
+		{src:"dao.png",id:"static"},
 		{src:"button.png",id:"button"},
 		{src:"bg.mp3",id:"bgSound"}
     ];
@@ -18,7 +18,7 @@
         id: "static",
         point: [
             {x:0,y:700,oY:-100,delayIn:0},
-            {x:73,y:228,oY:-100,delayIn:300,easeIn:createjs.Ease.bounceOut},
+            {x:293,y:288,oY:-100,delayIn:300,easeIn:createjs.Ease.bounceOut},
             {x:50,y:23,oY:-100,delayIn:0,easeIn:createjs.Ease.bounceOut},
             {x:677,y:30,oY:-100,delayIn:100},
             {x:677,y:30,oY:0,delayIn:0},
